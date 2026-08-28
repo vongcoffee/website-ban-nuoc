@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vòng Coffee</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f6f1ea;
+    color:#291b14;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #e6ddd4;
+}
+
+.navbar{
+    max-width:1200px;
+    height:76px;
+    margin:auto;
+    padding:0 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#a75d35;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#291b14;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:#a75d35;
+}
+
+.cart-button{
+    border:0;
+    background:#291b14;
+    color:white;
+    padding:12px 18px;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.cart-button:hover{
+    background:#a75d35;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    max-width:1200px;
+    min-height:500px;
+    margin:30px auto;
+    padding:60px;
+
+    border-radius:30px;
+
+    display:flex;
+    align-items:center;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(35,22,15,.95),
+        rgba(35,22,15,.35)
+    ),
+    url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=90");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.hero h1{
+    font-size:68px;
+    line-height:.9;
+}
+
+.hero h1 span{
+    color:#e19a65;
+}
+
+.slogan{
+    margin-top:20px;
+    font-size:21px;
+    font-weight:bold;
+}
+
+.hero p{
+    margin-top:16px;
+    font-size:17px;
+    line-height:1.7;
+    color:#eee;
+}
+
+.hero-button{
+    display:inline-block;
+    margin-top:28px;
+
+    padding:15px 27px;
+
+    border-radius:30px;
+
+    background:#d88a52;
+    color:white;
+
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.hero-button:hover{
+    background:#b96c3c;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.section-heading{
+    margin:40px 0 25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.section-heading h2{
+    font-size:34px;
+}
+
+.search{
+    width:280px;
+
+    padding:13px 18px;
+
+    border:1px solid #ddd;
+    border-radius:30px;
+
+    outline:none;
+
+    background:white;
+
+    font-size:15px;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.product{
+    background:white;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.07);
+
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-7px);
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,.15);
+}
+
+.product-image{
+    height:225px;
+    background:#eee3d8;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.4s;
+}
+
+.product:hover .product-image img{
+    transform:scale(1.06);
+}
+
+/* Khi ảnh không tải được */
+
+.fallback{
+    width:100%;
+    height:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ead7c5,
+        #faf2e9
+    );
+}
+
+.fallback-icon{
+    font-size:65px;
+}
+
+.fallback-name{
+    margin-top:8px;
+
+    color:#684532;
+
+    font-size:14px;
+    font-weight:bold;
+}
+
+.product-info{
+    padding:18px;
+}
+
+.product-info h3{
+    font-size:19px;
+}
+
+.description{
+    margin-top:8px;
+
+    min-height:40px;
+
+    color:#777;
+
+    font-size:14px;
+
+    line-height:1.5;
+}
+
+.price{
+    margin:13px 0;
+
+    color:#a75d35;
+
+    font-size:20px;
+
+    font-weight:900;
+}
+
+.add-button{
+    width:100%;
+
+    padding:12px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:#291b14;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.add-button:hover{
+    background:#a75d35;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    margin-top:65px;
+
+    padding:55px 30px;
+
+    background:#291b14;
+
+    color:white;
+
+    border-radius:30px;
+
+    text-align:center;
+}
+
+.about h2{
+    font-size:35px;
+
+    margin-bottom:15px;
+}
+
+.about p{
+    max-width:750px;
+
+    margin:auto;
+
+    color:#ddd;
+
+    line-height:1.8;
+}
+
+.about .slogan{
+    color:#e19a65;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+}
+
+.contact-box{
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.06);
+}
+
+.contact-box h3{
+    margin-bottom:10px;
+}
+
+.contact-box p{
+    color:#666;
+
+    line-height:1.7;
+}
+
+.phone{
+    color:#a75d35;
+
+    font-size:20px;
+
+    font-weight:bold;
+}
+
+/* ================= CART ================= */
+
+.cart{
+    position:fixed;
+
+    top:0;
+
+    right:-430px;
+
+    width:410px;
+
+    max-width:100%;
+
+    height:100vh;
+
+    z-index:3000;
+
+    background:white;
+
+    box-shadow:
+    -10px 0 40px rgba(0,0,0,.25);
+
+    padding:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    transition:.35s;
+}
+
+.cart.active{
+    right:0;
+}
+
+.cart-header{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding-bottom:20px;
+
+    border-bottom:1px solid #eee;
+}
+
+.close-button{
+    width:36px;
+    height:36px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#eee;
+
+    cursor:pointer;
+
+    font-size:18px;
+}
+
+.cart-items{
+    flex:1;
+
+    overflow:auto;
+
+    padding:15px 0;
+}
+
+.empty-cart{
+    padding-top:60px;
+
+    text-align:center;
+
+    color:#888;
+}
+
+.cart-item{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #eee;
+}
+
+.cart-name{
+    font-weight:bold;
+}
+
+.cart-price{
+    margin-top:5px;
+
+    color:#777;
+
+    font-size:13px;
+}
+
+.quantity{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.quantity button{
+    width:29px;
+    height:29px;
+
+    border:0;
+
+    border-radius:7px;
+
+    background:#eee;
+
+    cursor:pointer;
+
+    font-size:16px;
+}
+
+.cart-bottom{
+    padding-top:20px;
+
+    border-top:1px solid #eee;
+}
+
+.total{
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:15px;
+
+    font-size:21px;
+
+    font-weight:bold;
+}
+
+.checkout{
+    width:100%;
+
+    padding:15px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:#a75d35;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.checkout:hover{
+    background:#864524;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:65px;
+
+    padding:45px 20px;
+
+    background:#17100d;
+
+    color:white;
+
+    text-align:center;
+}
+
+footer h2{
+    margin-bottom:12px;
+
+    font-size:30px;
+}
+
+footer p{
+    margin:8px;
+
+    color:#cfc7c2;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:950px){
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        margin:15px;
+
+        padding:50px 30px;
+    }
+
+    .hero h1{
+        font-size:52px;
+    }
+}
+
+@media(max-width:600px){
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .section-heading{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .hero{
+        min-height:470px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+    .cart{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+VÒNG <span>COFFEE</span>
+</div>
+
+<ul class="nav-links">
+
+<li>
+<a href="#menu">Menu</a>
+</li>
+
+<li>
+<a href="#about">Giới thiệu</a>
+</li>
+
+<li>
+<a href="#contact">Liên hệ</a>
+</li>
+
+</ul>
+
+<button
+class="cart-button"
+onclick="openCart()">
+
+🛒 Giỏ hàng
+(<span id="cartCount">0</span>)
+
+</button>
+
+</nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+VÒNG<br>
+<span>COFFEE</span>
+</h1>
+
+<div class="slogan">
+Một vòng vị ngon, một vòng câu chuyện.
+</div>
+
+<p>
+Cà phê, trà, sinh tố và những món đồ uống
+được chuẩn bị dành cho những khoảnh khắc
+thật chill.
+</p>
+
+<a
+class="hero-button"
+href="#menu">
+
+Xem menu →
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= MENU ================= -->
+
+<main
+class="container"
+id="menu">
+
+<div class="section-heading">
+
+<h2>
+Menu Vòng Coffee
+</h2>
+
+<input
+id="search"
+class="search"
+
+type="text"
+
+placeholder="🔎 Tìm đồ uống..."
+
+oninput="searchProducts()">
+
+</div>
+
+<div
+id="products"
+class="products">
+
+</div>
+
+</main>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section
+class="container"
+id="about">
+
+<div class="about">
+
+<h2>
+Về Vòng Coffee
+</h2>
+
+<p>
+Một nơi để thưởng thức một ly nước ngon,
+ngồi lại một chút và tận hưởng những câu
+chuyện giản dị trong ngày.
+</p>
+
+<div class="slogan">
+Một vòng vị ngon, một vòng câu chuyện.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section
+class="container"
+id="contact">
+
+<div class="contact">
+
+<div class="contact-box">
+
+<h3>
+📍 Địa chỉ
+</h3>
+
+<p>
+Đường Vòng, thôn Tân Đại,
+xã Thăng Bình, tỉnh Thanh Hóa
+</p>
+
+</div>
+
+
+<div class="contact-box">
+
+<h3>
+📞 Liên hệ
+</h3>
+
+<p>
+
+Gọi đặt đồ uống:
+
+<br>
+
+<span class="phone">
+0987533525
+</span>
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<h2>
+VÒNG COFFEE
+</h2>
+
+<p>
+Một vòng vị ngon, một vòng câu chuyện.
+</p>
+
+<p>
+📍 Đường Vòng, thôn Tân Đại,
+xã Thăng Bình, tỉnh Thanh Hóa
+</p>
+
+<p>
+📞 0987533525
+</p>
+
+<p>
+© 2026 Vòng Coffee
+</p>
+
+</footer>
+
+
+<!-- ================= CART ================= -->
+
+<div
+id="cart"
+class="cart">
+
+<div class="cart-header">
+
+<h2>
+Giỏ hàng 🛒
+</h2>
+
+<button
+class="close-button"
+onclick="closeCart()">
+
+✕
+
+</button>
+
+</div>
+
+
+<div
+id="cartItems"
+class="cart-items">
+
+</div>
+
+
+<div class="cart-bottom">
+
+<div class="total">
+
+<span>
+Tổng
+</span>
+
+<span id="total">
+0đ
+</span>
+
+</div>
+
+<button
+class="checkout"
+onclick="checkout()">
+
+Đặt hàng
+
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =================================================
+   DANH SÁCH ĐỒ UỐNG
+================================================= */
+
+const products = [
+
+{
+name:"Trà sữa",
+price:20000,
+emoji:"🧋",
+image:"https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=800&q=90"
+},
+
+{
+name:"Coffee đen",
+price:10000,
+emoji:"☕",
+image:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=90"
+},
+
+{
+name:"Coffee sữa",
+price:15000,
+emoji:"🥛",
+image:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=90"
+},
+
+{
+name:"Coffee muối",
+price:20000,
+emoji:"☕",
+image:"https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=90"
+},
+
+{
+name:"Bạc xỉu",
+price:20000,
+emoji:"🥛",
+image:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=90"
+},
+
+{
+name:"Sữa chua",
+price:20000,
+emoji:"🍶",
+image:"https://www.huongnghiepaau.com/wp-content/uploads/2024/05/sua-chua-danh-da.jpg"
+},
+
+{
+name:"Nước ép cam",
+price:20000,
+emoji:"🍊",
+image:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=90"
+},
+
+{
+name:"Nước ép dứa",
+price:20000,
+emoji:"🍍",
+image:"https://cdn.tgdd.vn/Files/2019/05/09/1165787/cach-lam-nuoc-ep-dua-thom-ngon-don-gian-trong-vai-phut-202109211428524368.jpg"
+},
+
+{
+name:"Ca cao",
+price:20000,
+emoji:"🍫",
+image:"https://cdn.tgdd.vn//News/1542155//uong-ca-cao-voi-sua-dac-co-tac-dung-gi-cach-pha(2)-845x500.jpg"
+},
+{
+name:"Ca cao trân châu",
+price:20000,
+emoji:"🧋",
+image:"https://i.ytimg.com/vi/vRKlrIIrpMA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBg2vRKekWz9EzthWObqSK51INysw"
+},
+
+{
+name:"Ca cao nóng",
+price:20000,
+emoji:"☕",
+image:"https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=90"
+},
+
+{
+name:"Sinh tố xoài",
+price:25000,
+emoji:"🥭",
+image:"https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=800&q=90"
+},
+
+{
+name:"Sinh tố bơ",
+price:25000,
+emoji:"🥑",
+image:"https://cookbeo.com/media/2021/06/sinh-to-bo/sinh-to-bo.jpg"
+},
+
+/* =============================
+   3 TRÀ DÙNG ẢNH RIÊNG
+============================= */
+
+{
+name:"Trà chanh",
+price:10000,
+emoji:"🍋",
+image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShWahJ3XxrdGK3h6R2qHqsgQ-HApwAHT_eZ0tderDuOMIitLcD2i4Nnmg&s=10"
+},
+
+{
+name:"Trà đào",
+price:10000,
+emoji:"🍑",
+image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6ffkOrauxdFUCWx9dsajO6vesDaTqXeMH6L8R3dl6Q6RCIDgq8Jld33o&s=10"
+},
+
+{
+name:"Trà tắc",
+price:10000,
+emoji:"🍊",
+image:"https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_5_28_638525252693260225_tra-tac-bao-nhieu-calo.jpg"
+},
+
+{
+name:"Trà bí đao hạt chia",
+price:20000,
+emoji:"🌿",
+image:"https://horecavn.com/wp-content/uploads/2024/05/tra-bi-dao-suong-sao-hat-chia-ly-500ml_20240527104953.jpg"
+},
+
+{
+name:"Matcha",
+price:20000,
+emoji:"🍵",
+image:"https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=90"
+}
+
+];
+
+
+/* =================================================
+   GIỎ HÀNG
+================================================= */
+
+let cart=[];
+
+
+/* =================================================
+   ĐỊNH DẠNG TIỀN
+================================================= */
+
+function formatMoney(number){
+
+return number.toLocaleString("vi-VN")+"đ";
+
+}
+
+
+/* =================================================
+   HIỂN THỊ ẢNH LỖI
+================================================= */
+
+function imageError(img,emoji,name){
+
+img.style.display="none";
+
+const parent=img.parentElement;
+
+parent.innerHTML=`
+
+<div class="fallback">
+
+<div class="fallback-icon">
+${emoji}
+</div>
+
+<div class="fallback-name">
+${name}
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =================================================
+   HIỂN THỊ SẢN PHẨM
+================================================= */
+
+function renderProducts(list=products){
+
+const box=
+document.getElementById("products");
+
+box.innerHTML="";
+
+
+list.forEach(product=>{
+
+const index=
+products.indexOf(product);
+
+
+box.innerHTML+=`
+
+<div class="product">
+
+<div class="product-image">
+
+<img
+
+src="${product.image}"
+
+alt="${product.name}"
+
+onerror="
+imageError(
+this,
+'${product.emoji}',
+'${product.name}'
+)
+">
+
+</div>
+
+
+<div class="product-info">
+
+<h3>
+${product.name}
+</h3>
+
+<p class="description">
+
+Hương vị thơm ngon đặc trưng
+của Vòng Coffee.
+
+</p>
+
+<div class="price">
+
+${formatMoney(product.price)}
+
+</div>
+
+<button
+
+class="add-button"
+
+onclick="addToCart(${index})">
+
++ Thêm vào giỏ
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+/* =================================================
+   THÊM VÀO GIỎ
+================================================= */
+
+function addToCart(index){
+
+const product=
+products[index];
+
+const existing=
+cart.find(
+item=>item.name===product.name
+);
+
+
+if(existing){
+
+existing.qty++;
+
+}else{
+
+cart.push({
+
+...product,
+
+qty:1
+
+});
+
+}
+
+
+updateCart();
+
+}
+
+
+/* =================================================
+   CẬP NHẬT GIỎ
+================================================= */
+
+function updateCart(){
+
+const box=
+document.getElementById("cartItems");
+
+let total=0;
+
+let count=0;
+
+
+if(cart.length===0){
+
+box.innerHTML=`
+
+<div class="empty-cart">
+
+🛒
+
+<br><br>
+
+Giỏ hàng đang trống.
+
+</div>
+
+`;
+
+}else{
+
+box.innerHTML="";
+
+
+cart.forEach((item,index)=>{
+
+total+=
+item.price*item.qty;
+
+count+=
+item.qty;
+
+
+box.innerHTML+=`
+
+<div class="cart-item">
+
+<div>
+
+<div class="cart-name">
+
+${item.name}
+
+</div>
+
+<div class="cart-price">
+
+${formatMoney(item.price)}
+
+</div>
+
+</div>
+
+
+<div class="quantity">
+
+<button
+
+onclick="changeQuantity(${index},-1)">
+
+−
+
+</button>
+
+<span>
+
+${item.qty}
+
+</span>
+
+<button
+
+onclick="changeQuantity(${index},1)">
+
++
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+document.getElementById("total")
+.innerText=
+formatMoney(total);
+
+
+document.getElementById("cartCount")
+.innerText=
+count;
+
+}
+
+
+/* =================================================
+   TĂNG / GIẢM SỐ LƯỢNG
+================================================= */
+
+function changeQuantity(index,value){
+
+cart[index].qty+=value;
+
+
+if(cart[index].qty<=0){
+
+cart.splice(index,1);
+
+}
+
+
+updateCart();
+
+}
+
+
+/* =================================================
+   MỞ GIỎ
+================================================= */
+
+function openCart(){
+
+document
+.getElementById("cart")
+.classList.add("active");
+
+}
+
+
+/* =================================================
+   ĐÓNG GIỎ
+================================================= */
+
+function closeCart(){
+
+document
+.getElementById("cart")
+.classList.remove("active");
+
+}
+
+
+/* =================================================
+   TÌM KIẾM
+================================================= */
+
+function searchProducts(){
+
+const keyword=
+
+document
+.getElementById("search")
+.value
+.toLowerCase()
+.trim();
+
+
+const result=
+
+products.filter(product=>
+
+product.name
+.toLowerCase()
+.includes(keyword)
+
+);
+
+
+renderProducts(result);
+
+}
+
+
+/* =================================================
+   ĐẶT HÀNG
+================================================= */
+
+function checkout(){
+
+if(cart.length===0){
+
+alert(
+"Giỏ hàng đang trống!"
+);
+
+return;
+
+}
+
+
+let order=
+
+"ĐƠN HÀNG VÒNG COFFEE\n\n";
+
+
+cart.forEach(item=>{
+
+order+=
+
+`${item.name} x${item.qty} - ${formatMoney(item.price*item.qty)}\n`;
+
+});
+
+
+const total=
+
+cart.reduce(
+
+(sum,item)=>
+sum+(item.price*item.qty),
+
+0
+
+);
+
+
+order+=
+
+`\nTổng: ${formatMoney(total)}`;
+
+
+alert(
+
+order+
+
+"\n\nVui lòng gọi 0987533525 để xác nhận đơn."
+
+);
+
+}
+
+
+/* =================================================
+   KHỞI ĐỘNG WEBSITE
+================================================= */
+
+renderProducts();
+
+updateCart();
+
+</script>
+
+</body>
+</html>
