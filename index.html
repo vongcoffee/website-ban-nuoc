@@ -39,7 +39,6 @@ header{
     height:76px;
     margin:auto;
     padding:0 20px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -92,12 +91,9 @@ header{
     min-height:500px;
     margin:30px auto;
     padding:60px;
-
     border-radius:30px;
-
     display:flex;
     align-items:center;
-
     color:white;
 
     background:
@@ -141,14 +137,10 @@ header{
 .hero-button{
     display:inline-block;
     margin-top:28px;
-
     padding:15px 27px;
-
     border-radius:30px;
-
     background:#d88a52;
     color:white;
-
     text-decoration:none;
     font-weight:bold;
 }
@@ -167,7 +159,6 @@ header{
 
 .section-heading{
     margin:40px 0 25px;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -180,16 +171,11 @@ header{
 
 .search{
     width:280px;
-
     padding:13px 18px;
-
     border:1px solid #ddd;
     border-radius:30px;
-
     outline:none;
-
     background:white;
-
     font-size:15px;
 }
 
@@ -203,9 +189,7 @@ header{
 
 .product{
     background:white;
-
     border-radius:22px;
-
     overflow:hidden;
 
     box-shadow:
@@ -224,20 +208,15 @@ header{
 .product-image{
     height:225px;
     background:#eee3d8;
-
     position:relative;
-
     overflow:hidden;
 }
 
 .product-image img{
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     display:block;
-
     transition:.4s;
 }
 
@@ -245,16 +224,12 @@ header{
     transform:scale(1.06);
 }
 
-/* Khi ảnh không tải được */
-
 .fallback{
     width:100%;
     height:100%;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     flex-direction:column;
 
     background:
@@ -271,9 +246,7 @@ header{
 
 .fallback-name{
     margin-top:8px;
-
     color:#684532;
-
     font-size:14px;
     font-weight:bold;
 }
@@ -288,41 +261,27 @@ header{
 
 .description{
     margin-top:8px;
-
     min-height:40px;
-
     color:#777;
-
     font-size:14px;
-
     line-height:1.5;
 }
 
 .price{
     margin:13px 0;
-
     color:#a75d35;
-
     font-size:20px;
-
     font-weight:900;
 }
 
 .add-button{
     width:100%;
-
     padding:12px;
-
     border:0;
-
     border-radius:12px;
-
     background:#291b14;
-
     color:white;
-
     font-weight:bold;
-
     cursor:pointer;
 }
 
@@ -330,35 +289,56 @@ header{
     background:#a75d35;
 }
 
+/* ================= TOAST ================= */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:30px;
+
+    transform:translate(-50%,120px);
+
+    background:#291b14;
+    color:white;
+
+    padding:14px 22px;
+
+    border-radius:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+    z-index:5000;
+
+    opacity:0;
+
+    transition:.35s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
 /* ================= ABOUT ================= */
 
 .about{
     margin-top:65px;
-
     padding:55px 30px;
-
     background:#291b14;
-
     color:white;
-
     border-radius:30px;
-
     text-align:center;
 }
 
 .about h2{
     font-size:35px;
-
     margin-bottom:15px;
 }
 
 .about p{
     max-width:750px;
-
     margin:auto;
-
     color:#ddd;
-
     line-height:1.8;
 }
 
@@ -370,19 +350,14 @@ header{
 
 .contact{
     margin-top:45px;
-
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:20px;
 }
 
 .contact-box{
     background:white;
-
     padding:25px;
-
     border-radius:20px;
 
     box-shadow:
@@ -395,15 +370,12 @@ header{
 
 .contact-box p{
     color:#666;
-
     line-height:1.7;
 }
 
 .phone{
     color:#a75d35;
-
     font-size:20px;
-
     font-weight:bold;
 }
 
@@ -411,15 +383,11 @@ header{
 
 .cart{
     position:fixed;
-
     top:0;
-
     right:-430px;
 
     width:410px;
-
     max-width:100%;
-
     height:100vh;
 
     z-index:3000;
@@ -432,7 +400,6 @@ header{
     padding:25px;
 
     display:flex;
-
     flex-direction:column;
 
     transition:.35s;
@@ -444,9 +411,7 @@ header{
 
 .cart-header{
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     padding-bottom:20px;
@@ -459,7 +424,6 @@ header{
     height:36px;
 
     border:0;
-
     border-radius:50%;
 
     background:#eee;
@@ -471,25 +435,19 @@ header{
 
 .cart-items{
     flex:1;
-
     overflow:auto;
-
     padding:15px 0;
 }
 
 .empty-cart{
     padding-top:60px;
-
     text-align:center;
-
     color:#888;
 }
 
 .cart-item{
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     gap:10px;
@@ -505,17 +463,13 @@ header{
 
 .cart-price{
     margin-top:5px;
-
     color:#777;
-
     font-size:13px;
 }
 
 .quantity{
     display:flex;
-
     align-items:center;
-
     gap:8px;
 }
 
@@ -524,7 +478,6 @@ header{
     height:29px;
 
     border:0;
-
     border-radius:7px;
 
     background:#eee;
@@ -536,19 +489,16 @@ header{
 
 .cart-bottom{
     padding-top:20px;
-
     border-top:1px solid #eee;
 }
 
 .total{
     display:flex;
-
     justify-content:space-between;
 
     margin-bottom:15px;
 
     font-size:21px;
-
     font-weight:bold;
 }
 
@@ -558,10 +508,167 @@ header{
     padding:15px;
 
     border:0;
-
     border-radius:12px;
 
     background:#a75d35;
+
+    color:white;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.checkout:hover{
+    background:#864524;
+}
+
+/* ================= CHECKOUT MODAL ================= */
+
+.modal-overlay{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.6);
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    z-index:4000;
+}
+
+.modal-overlay.active{
+    display:flex;
+}
+
+.checkout-modal{
+    width:500px;
+    max-width:100%;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:28px;
+
+    box-shadow:
+    0 20px 70px rgba(0,0,0,.3);
+}
+
+.modal-header{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.modal-header h2{
+    font-size:25px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+
+    margin-bottom:7px;
+
+    font-weight:bold;
+}
+
+.form-group input,
+.form-group textarea{
+
+    width:100%;
+
+    padding:13px 15px;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-family:inherit;
+
+    font-size:15px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:#a75d35;
+}
+
+.form-group textarea{
+    resize:vertical;
+
+    min-height:90px;
+}
+
+.order-summary{
+    margin:20px 0;
+
+    padding:15px;
+
+    background:#f7f2ed;
+
+    border-radius:15px;
+}
+
+.order-summary h3{
+    margin-bottom:10px;
+}
+
+.summary-item{
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:7px 0;
+
+    color:#555;
+}
+
+.summary-total{
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:10px;
+
+    padding-top:10px;
+
+    border-top:1px solid #ddd;
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+
+.confirm-order{
+    width:100%;
+
+    padding:15px;
+
+    border:0;
+
+    border-radius:13px;
+
+    background:#291b14;
 
     color:white;
 
@@ -572,8 +679,56 @@ header{
     cursor:pointer;
 }
 
-.checkout:hover{
-    background:#864524;
+.confirm-order:hover{
+    background:#a75d35;
+}
+
+/* ================= SUCCESS ================= */
+
+.success{
+    display:none;
+
+    text-align:center;
+
+    padding:25px 10px;
+}
+
+.success.active{
+    display:block;
+}
+
+.success-icon{
+    font-size:60px;
+
+    margin-bottom:15px;
+}
+
+.success h2{
+    margin-bottom:10px;
+}
+
+.success p{
+    color:#666;
+
+    line-height:1.7;
+}
+
+.call-button{
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:13px 22px;
+
+    border-radius:30px;
+
+    background:#a75d35;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
 }
 
 /* ================= FOOTER ================= */
@@ -616,7 +771,6 @@ footer p{
 
     .hero{
         margin:15px;
-
         padding:50px 30px;
     }
 
@@ -633,7 +787,6 @@ footer p{
 
     .section-heading{
         flex-direction:column;
-
         align-items:flex-start;
     }
 
@@ -655,6 +808,10 @@ footer p{
 
     .cart{
         width:100%;
+    }
+
+    .checkout-modal{
+        padding:20px;
     }
 }
 </style>
@@ -751,11 +908,8 @@ Menu Vòng Coffee
 <input
 id="search"
 class="search"
-
 type="text"
-
 placeholder="🔎 Tìm đồ uống..."
-
 oninput="searchProducts()">
 
 </div>
@@ -928,10 +1082,156 @@ onclick="checkout()">
 </div>
 
 
+<!-- ================= CHECKOUT MODAL ================= -->
+
+<div
+id="checkoutModal"
+class="modal-overlay">
+
+<div class="checkout-modal">
+
+<div
+id="checkoutForm">
+
+<div class="modal-header">
+
+<h2>
+Thông tin đặt hàng 🧾
+</h2>
+
+<button
+class="close-button"
+onclick="closeCheckout()">
+
+✕
+
+</button>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Họ và tên
+</label>
+
+<input
+id="customerName"
+type="text"
+placeholder="Nhập tên của bạn">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Số điện thoại
+</label>
+
+<input
+id="customerPhone"
+type="tel"
+placeholder="Nhập số điện thoại">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Địa chỉ nhận hàng
+</label>
+
+<input
+id="customerAddress"
+type="text"
+placeholder="Nhập địa chỉ">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Ghi chú
+</label>
+
+<textarea
+id="customerNote"
+placeholder="Ví dụ: ít đá, ít đường..."></textarea>
+
+</div>
+
+
+<div
+id="orderSummary"
+class="order-summary">
+
+</div>
+
+
+<button
+class="confirm-order"
+onclick="confirmOrder()">
+
+✅ Xác nhận đặt hàng
+
+</button>
+
+</div>
+
+
+<div
+id="success"
+class="success">
+
+<div class="success-icon">
+✅
+</div>
+
+<h2>
+Đặt hàng thành công!
+</h2>
+
+<p>
+Thông tin đơn hàng đã được tạo.
+<br>
+Vui lòng gọi cho Vòng Coffee để xác nhận đơn.
+</p>
+
+<a
+class="call-button"
+href="tel:0987533525">
+
+📞 Gọi 0987533525
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div
+id="toast"
+class="toast">
+
+Đã thêm vào giỏ 🛒
+
+</div>
+
+
 <script>
 
 /* =================================================
    DANH SÁCH ĐỒ UỐNG
+   👉 MUỐN SỬA TÊN / GIÁ / ẢNH THÌ SỬA Ở ĐÂY
 ================================================= */
 
 const products = [
@@ -998,6 +1298,7 @@ price:20000,
 emoji:"🍫",
 image:"https://cdn.tgdd.vn//News/1542155//uong-ca-cao-voi-sua-dac-co-tac-dung-gi-cach-pha(2)-845x500.jpg"
 },
+
 {
 name:"Ca cao trân châu",
 price:20000,
@@ -1025,10 +1326,6 @@ price:25000,
 emoji:"🥑",
 image:"https://cookbeo.com/media/2021/06/sinh-to-bo/sinh-to-bo.jpg"
 },
-
-/* =============================
-   3 TRÀ DÙNG ẢNH RIÊNG
-============================= */
 
 {
 name:"Trà chanh",
@@ -1087,7 +1384,47 @@ return number.toLocaleString("vi-VN")+"đ";
 
 
 /* =================================================
-   HIỂN THỊ ẢNH LỖI
+   LƯU GIỎ HÀNG
+================================================= */
+
+function saveCart(){
+
+localStorage.setItem(
+"vongCoffeeCart",
+JSON.stringify(cart)
+);
+
+}
+
+
+/* =================================================
+   TẢI GIỎ HÀNG
+================================================= */
+
+function loadCart(){
+
+const saved=
+localStorage.getItem("vongCoffeeCart");
+
+if(saved){
+
+try{
+
+cart=JSON.parse(saved);
+
+}catch(error){
+
+cart=[];
+
+}
+
+}
+
+}
+
+
+/* =================================================
+   ẢNH LỖI
 ================================================= */
 
 function imageError(img,emoji,name){
@@ -1140,11 +1477,8 @@ box.innerHTML+=`
 <div class="product-image">
 
 <img
-
 src="${product.image}"
-
 alt="${product.name}"
-
 onerror="
 imageError(
 this,
@@ -1163,22 +1497,16 @@ ${product.name}
 </h3>
 
 <p class="description">
-
 Hương vị thơm ngon đặc trưng
 của Vòng Coffee.
-
 </p>
 
 <div class="price">
-
 ${formatMoney(product.price)}
-
 </div>
 
 <button
-
 class="add-button"
-
 onclick="addToCart(${index})">
 
 + Thêm vào giỏ
@@ -1228,7 +1556,13 @@ qty:1
 }
 
 
+saveCart();
+
 updateCart();
+
+showToast(
+product.name+" đã được thêm 🛒"
+);
 
 }
 
@@ -1284,15 +1618,11 @@ box.innerHTML+=`
 <div>
 
 <div class="cart-name">
-
 ${item.name}
-
 </div>
 
 <div class="cart-price">
-
 ${formatMoney(item.price)}
-
 </div>
 
 </div>
@@ -1301,25 +1631,17 @@ ${formatMoney(item.price)}
 <div class="quantity">
 
 <button
-
 onclick="changeQuantity(${index},-1)">
-
 −
-
 </button>
 
 <span>
-
 ${item.qty}
-
 </span>
 
 <button
-
 onclick="changeQuantity(${index},1)">
-
 +
-
 </button>
 
 </div>
@@ -1337,16 +1659,17 @@ document.getElementById("total")
 .innerText=
 formatMoney(total);
 
-
 document.getElementById("cartCount")
 .innerText=
 count;
+
+saveCart();
 
 }
 
 
 /* =================================================
-   TĂNG / GIẢM SỐ LƯỢNG
+   TĂNG / GIẢM
 ================================================= */
 
 function changeQuantity(index,value){
@@ -1399,7 +1722,6 @@ document
 function searchProducts(){
 
 const keyword=
-
 document
 .getElementById("search")
 .value
@@ -1408,7 +1730,6 @@ document
 
 
 const result=
-
 products.filter(product=>
 
 product.name
@@ -1424,14 +1745,14 @@ renderProducts(result);
 
 
 /* =================================================
-   ĐẶT HÀNG
+   MỞ FORM ĐẶT HÀNG
 ================================================= */
 
 function checkout(){
 
 if(cart.length===0){
 
-alert(
+showToast(
 "Giỏ hàng đang trống!"
 );
 
@@ -1439,52 +1760,289 @@ return;
 
 }
 
+renderOrderSummary();
 
-let order=
-
-"ĐƠN HÀNG VÒNG COFFEE\n\n";
-
-
-cart.forEach(item=>{
-
-order+=
-
-`${item.name} x${item.qty} - ${formatMoney(item.price*item.qty)}\n`;
-
-});
-
-
-const total=
-
-cart.reduce(
-
-(sum,item)=>
-sum+(item.price*item.qty),
-
-0
-
-);
-
-
-order+=
-
-`\nTổng: ${formatMoney(total)}`;
-
-
-alert(
-
-order+
-
-"\n\nVui lòng gọi 0987533525 để xác nhận đơn."
-
-);
+document
+.getElementById("checkoutModal")
+.classList.add("active");
 
 }
 
 
 /* =================================================
-   KHỞI ĐỘNG WEBSITE
+   ĐÓNG FORM
 ================================================= */
+
+function closeCheckout(){
+
+document
+.getElementById("checkoutModal")
+.classList.remove("active");
+
+}
+
+
+/* =================================================
+   HIỂN THỊ ĐƠN HÀNG
+================================================= */
+
+function renderOrderSummary(){
+
+const box=
+document.getElementById("orderSummary");
+
+let html=
+"<h3>Đơn hàng của bạn</h3>";
+
+let total=0;
+
+
+cart.forEach(item=>{
+
+const itemTotal=
+item.price*item.qty;
+
+total+=itemTotal;
+
+
+html+=`
+
+<div class="summary-item">
+
+<span>
+${item.name} × ${item.qty}
+</span>
+
+<span>
+${formatMoney(itemTotal)}
+</span>
+
+</div>
+
+`;
+
+});
+
+
+html+=`
+
+<div class="summary-total">
+
+<span>
+Tổng cộng
+</span>
+
+<span>
+${formatMoney(total)}
+</span>
+
+</div>
+
+`;
+
+
+box.innerHTML=html;
+
+}
+
+
+/* =================================================
+   XÁC NHẬN ĐẶT HÀNG
+================================================= */
+
+function confirmOrder(){
+
+const name=
+document
+.getElementById("customerName")
+.value
+.trim();
+
+const phone=
+document
+.getElementById("customerPhone")
+.value
+.trim();
+
+const address=
+document
+.getElementById("customerAddress")
+.value
+.trim();
+
+const note=
+document
+.getElementById("customerNote")
+.value
+.trim();
+
+
+if(!name){
+
+showToast(
+"Bạn chưa nhập họ tên!"
+);
+
+return;
+
+}
+
+
+if(!phone){
+
+showToast(
+"Bạn chưa nhập số điện thoại!"
+);
+
+return;
+
+}
+
+
+if(!address){
+
+showToast(
+"Bạn chưa nhập địa chỉ!"
+);
+
+return;
+
+}
+
+
+/* TẠO NỘI DUNG ĐƠN */
+
+let order=
+"ĐƠN HÀNG VÒNG COFFEE\n\n";
+
+order+=
+"Khách: "+name+"\n";
+
+order+=
+"SĐT: "+phone+"\n";
+
+order+=
+"Địa chỉ: "+address+"\n";
+
+if(note){
+
+order+=
+"Ghi chú: "+note+"\n";
+
+}
+
+order+="\n--- SẢN PHẨM ---\n";
+
+
+let total=0;
+
+
+cart.forEach(item=>{
+
+const itemTotal=
+item.price*item.qty;
+
+total+=itemTotal;
+
+
+order+=
+item.name+
+" x"+
+item.qty+
+" - "+
+formatMoney(itemTotal)+
+"\n";
+
+});
+
+
+order+=
+"\nTỔNG: "+
+formatMoney(total);
+
+
+/*
+    Hiện đơn hàng trong console để kiểm tra.
+*/
+
+console.log(order);
+
+
+/*
+    Hiện trạng thái thành công.
+*/
+
+document
+.getElementById("checkoutForm")
+.style.display="none";
+
+
+document
+.getElementById("success")
+.classList.add("active");
+
+
+/*
+    Xóa giỏ hàng sau khi đặt.
+*/
+
+cart=[];
+
+saveCart();
+
+updateCart();
+
+}
+
+
+/* =================================================
+   TOAST
+================================================= */
+
+function showToast(message){
+
+const toast=
+document.getElementById("toast");
+
+toast.innerText=message;
+
+toast.classList.add("show");
+
+
+setTimeout(()=>{
+
+toast.classList.remove("show");
+
+},2200);
+
+}
+
+
+/* =================================================
+   CLICK RA NGOÀI MODAL ĐỂ ĐÓNG
+================================================= */
+
+document
+.getElementById("checkoutModal")
+.addEventListener(
+"click",
+function(event){
+
+if(event.target===this){
+
+closeCheckout();
+
+}
+
+}
+);
+
+
+/* =================================================
+   KHỞI ĐỘNG
+================================================= */
+
+loadCart();
 
 renderProducts();
 
